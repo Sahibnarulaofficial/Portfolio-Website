@@ -36,7 +36,7 @@ app.post("/contact", async (req, res) => {
   try {
     // ===== Send Email via Resend API =====
     const result = await resend.emails.send({
-      from: "Silent Systems <onboarding@resend.dev>",
+      from: "Sahib Narula <onboarding@resend.dev>",
       to: "sahibnarula106@gmail.com", // 🔹 your inbox
       subject: `New message from ${name}`,
       text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
