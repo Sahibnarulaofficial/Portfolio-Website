@@ -37,7 +37,7 @@ app.post("/contact", async (req, res) => {
     // ===== Send Email via Resend API =====
     const result = await resend.emails.send({
       from: "Silent Systems <onboarding@resend.dev>",
-      to: "silentsystems.team@gmail.com", // 🔹 your inbox
+      to: "sahibnarula106@gmail.com", // 🔹 your inbox
       subject: `New message from ${name}`,
       text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
     });
@@ -81,7 +81,7 @@ app.post("/newsletter", async (req, res) => {
     const resend = new Resend(process.env.RESEND_API_KEY);
     await resend.emails.send({
       from: "Sahib Narula <onboarding@resend.dev>",
-      to: "youremail@example.com", // replace with your real inbox
+      to: "sahibnarula106@gmail.com", // replace with your real inbox
       subject: "New Newsletter Subscriber",
       text: `New subscriber: ${email}`,
     });
