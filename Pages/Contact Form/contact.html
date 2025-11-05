@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Silent Systems</title>
+    <link rel="icon" href="../../Images/Logos/Logo 2.png" type="image/png">
+  <link rel="stylesheet" href="contact.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="logo">Sahib Narula</div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../index.html#services">Services</a></li>
+        <li><a href="../../index.html#portfolio">Portfolio</a></li>
+        <li><a href="../../index.html#about">About</a></li>
+      </ul>
+      <div class="hamburger" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Pricing Section -->
+  <section class="pricing-section fade-in">
+    <h2 class="pricing-title">My Packages</h2>
+    <p class="pricing-subtitle">Choose a plan that fits your goals and workflow.</p>
+
+    <div class="pricing-cards">
+      <div class="pricing-card" data-message="I’m interested in the SmartSite package for a single-page modern website.">
+        <h3>SmartSite</h3>
+        <p class="price">₹25,000</p>
+        <ul style="list-style-type: square;">
+          <li>One-page modern responsive website</li>
+          <li>Built with clean, minimal, and fast design principles</li>
+          <li>Optimized for both desktop and mobile viewing</li>
+          <li>SEO-ready structure for better visibility</li>
+          <li>Includes basic animations and contact form integration</li>
+          <li>Deployed and configured for live hosting</li>
+          <li>Ideal for freelancers, portfolios, and new startups</li>
+        </ul>
+        <a class="select-btn">Choose Plan</a>
+      </div>
+
+      <div class="pricing-card featured" data-message="I’m interested in the Startup System plan with AI chatbot and automation features.">
+        <h3>Startup System</h3>
+        <p class="price">₹85,000</p>
+        <ul style="list-style-type: square;">
+          <li>Fully custom multi-page website tailored to your brand</li>
+          <li>Integrated AI chatbot for instant visitor engagement</li>
+          <li>Automated lead capture and client response systems</li>
+          <li>SEO and speed optimization for growth-ready performance</li>
+          <li>CRM and analytics setup to track conversions and user behavior</li>
+          <li>Built-in email automation & form handling</li>
+          <li>Ideal for small startups scaling online presence</li>
+        </ul>
+        <a class="select-btn">Choose Plan</a>
+      </div>
+
+      <div class="pricing-card" data-message="I’m interested in the Growth Partner plan for monthly optimization and marketing.">
+        <h3>Growth Partner</h3>
+        <p class="price">₹40,000/mo</p>
+        <ul style="list-style-type: square;">
+          <li>Monthly collaboration for ongoing growth and improvement</li>
+          <li>Continuous website optimization and feature expansion</li>
+          <li>Full social media and ad campaign management</li>
+          <li>Monthly performance reports & strategic marketing planning</li>
+          <li>Content and design refreshes to match trends</li>
+          <li>Priority access to new AI tools and automation features</li>
+          <li>Best for scaling startups and international clients</li>
+        </ul>
+        <a class="select-btn">Choose Plan</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact-section fade-in">
+    <div class="contact-container">
+      <h2 class="contact-title">Let’s Work Together</h2>
+      <p class="contact-subtitle">
+        Have a project or idea in mind? Fill out the form below — I’ll get back to you within 24 hours.
+      </p>
+
+      <form id="contactForm">
+        <div class="form-group">
+          <input type="text" name="name" placeholder="Your Name" required />
+        </div>
+        <div class="form-group">
+          <input type="email" name="email" placeholder="Your Email" required />
+        </div>
+        <div class="form-group">
+          <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        </div>
+        <button type="submit" class="send-btn">Send Message</button>
+      </form>
+
+      <p id="responseMsg" class="response-message"></p>
+    </div>
+  </section>
+
+  <script src="contact.js"></script>
+</body>
+
+</html>

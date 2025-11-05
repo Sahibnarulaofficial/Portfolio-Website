@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sahib Narula</title>
+    <link rel="icon" href="Images/Logos/Logo 2.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <!-- Header / Navigation -->
+    <header>
+        <div class="logo">Sahib Narula</div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#about">About</a></li>
+                <a href="Pages/Contact Form/contact.html" class="nav-contact">Contact Me</a>
+            </ul>
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ===== Hero Section ===== -->
+    <section class="hero fade-in" id="home">
+    <div class="hero-content">
+        <h1>Hi, I'm <span class="accent">Sahib Narula</span></h1>
+        <h2 class="animated-text"></h2>
+        <p>I design and build modern websites, AI systems, and marketing strategies for startups and tech companies.</p>
+        <a href="Pages/Contact Form/contact.html" class="hero-btn">Let’s Work Together</a>
+    </div>
+    </section>
+
+
+    <!-- Services Section -->
+    <section id="services" class="services fade-in">
+        <h2>Services That I Offer</h2>
+        <div class="service-cards">
+            <div class="card">
+                <h3>Custom Web Design & Development</h3>
+                <p>
+                    I design and build fast, responsive, and conversion-focused websites that give startups and tech companies a powerful online presence. 
+                    Every design is handcrafted — from the structure and visuals to the smallest animations — ensuring your site not only looks premium but also performs seamlessly across all devices.
+                </p>
+            </div>
+            <div class="card">
+                <h3>AI-Powered Automation Systems</h3>
+                <p>
+                    I develop intelligent workflows that help businesses save time and scale efficiently using AI. 
+                    From lead qualification to customer support automation, I create end-to-end systems that integrate seamlessly with your operations, so your team can focus on strategy instead of repetitive tasks.
+                </p>
+            </div>
+            <div class="card">
+                <h3>Social Media Growth & Marketing Strategy</h3>
+                <p>
+                    I help brands grow through data-driven social media marketing — combining storytelling, content optimization, and ad strategies. 
+                    Every campaign is built around your audience psychology, helping you attract attention, drive engagement, and convert followers into loyal customers.
+                </p>
+            </div>
+            <div class="card">
+                <h3>Startup Branding & Digital Systems</h3>
+                <p>
+                    I work with early-stage startups to build their digital foundations — a strong brand identity, optimized website, and integrated marketing stack.
+                    My approach combines creative design with system thinking, ensuring your brand is not just beautiful but built to scale sustainably.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio fade-in">
+        <h2>My Portfolio</h2>
+        <div class="portfolio-grid">
+            <!-- Project 1 -->
+            <div class="portfolio-item" onclick="openModal(0)">
+                <img src="Images/Portfolio/Portfolio 1/Laptop 1.png" alt="Business Website">
+                <div class="overlay"><h3>Business Website</h3></div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="portfolio-item" onclick="openModal(1)">
+                <img src="Images/Portfolio/Portfolio 2/Laptop.png" alt="E-Commerce Website">
+                <div class="overlay"><h3>E-Commerce Store</h3></div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="portfolio-item" onclick="openModal(2)">
+                <img src="Images/Portfolio/Portfolio 3/Laptop 1.png" alt="Portfolio Gallery">
+                <div class="overlay"><h3>Portfolio Gallery</h3></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal Popup -->
+    <div id="portfolioModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+
+        <div class="modal-content">
+            <div class="slider">
+                <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+                <div class="slides-container" id="slidesContainer"></div>
+                <button class="next" onclick="changeSlide(1)">&#10095;</button>
+            </div>
+            <div class="modal-description" id="modalDescription"></div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="about fade-in">
+        <div class="about-container">
+            <!-- Left: Profile Card -->
+            <div class="about-left">
+                <div class="profile-card" onclick="window.open('https://www.linkedin.com/in/sahib-narula-787088357/', '_blank')">
+                    <img src="Images/Profile/Me.jpg" alt="Sahib Narula" class="profile-image">
+                    <div class="profile-details">
+                        <h3>Sahib Narula</h3>
+                        <p>Web Developer • AI Builder <br>• Marketer</p>
+                        <p>
+                            Passionate about turning ideas into digital systems that look good and perform even better.
+                            Let’s connect and build something meaningful together.
+                        </p>
+                    </div>
+                    <img src="Images/Logos/linkedin.svg" alt="linkedin logo" class="linkedin-icon">
+                </div>
+            </div>
+
+            <!-- Right: About Text -->
+            <div class="about-right">
+                <h2>About Me</h2>
+                <p>
+                    I’m Sahib Narula — a developer and marketer who loves crafting digital experiences that help <br>ideas come alive. 
+                    What started as curiosity for coding has grown into a mission : <br>building websites and  systems that empower startups to launch, grow, and scale faster.
+                </p>
+                <p>
+                    My work blends web design, automation, and marketing strategy to help founders get real<br> leverage —  not just another pretty site.
+                    Every project I take on is a chance to <br> learn, refine, and create something that truly represents the people behind it.
+                </p>
+                <p>
+                    When I’m not designing or building, I’m experimenting with new AI tools ,<br> refining my creative systems, and sharing my process online.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="footer-container">
+            <!-- Quick Links -->
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>Email: <a href="mailto:sahibnarulaofficial@gmail.com">sahibnarulaofficial@gmail.com</a></p>
+                <p>Phone: <a href="tel:+917849866475">+91 78498 66475</a></p>
+            </div>
+            <!-- Legal Links -->
+            <div class="footer-legal">
+                <h4>Legal</h4>
+                <ul>
+                <li><a href="Pages/Legal/T&Cs/terms-and-conditions.html" target="_blank">Terms & Conditions</a></li>
+                <li><a href="Pages/Legal/TOS/terms-of-service.html" target="_blank">Terms of Service</a></li>
+                <li><a href="Pages/Legal/Privacy policy/privacy-policy.html" target="_blank">Privacy Policy</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Follow Me</h4>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/silentsystems?utm_source=ig_web_button_share_sheet&igsh=c3Z4cXl4Nmx2NXEw" target="_blank" aria-label="Instagram">
+                        <img src="Images/Logos/instagram.svg" alt="Instagram Logo" class="social-icon">
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=61573957693822" target="_blank" aria-label="Facebook">
+                        <img src="Images/Logos/facebook.svg" alt="Facebook Logo" class="social-icon">
+                    </a>
+                    <a href="https://x.com/Sahib_Singh_N" target="_blank" aria-label="Twitter">
+                        <img src="Images/Logos/twitter-x.svg" alt="Twitter-X Logo" class="social-icon">
+                    </a>
+                    <a href="https://www.youtube.com/@SahibNarulaOfficial" target="_blank" aria-label="YouTube">
+                        <img src="Images/Logos/youtube.svg" alt="YouTube Logo" class="social-icon">
+                    </a>
+                </div>
+            </div>            
+            
+            <!-- Newsletter Signup -->
+            <div class="footer-section">
+                <section class="newsletter-section fade-in">
+                <h3>Join My Newsletter</h3>
+                <p>Get updates on new projects, tutorials, and digital systems I’m building.</p>
+                <form id="newsletterForm">
+                    <input type="email" id="newsletterEmail" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+                <p class="newsletter-response"></p>
+                </section>
+            </div>
+
+            <!-- Social Links -->
+
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; Made By Sahib</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

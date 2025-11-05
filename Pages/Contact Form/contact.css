@@ -1,0 +1,564 @@
+/* ========== Global Reset ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body{
+  background: linear-gradient(135deg, #0b0f19, #121827);
+}
+
+/* ========== Navbar Styles ========== */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+  background-color: #0d1b2a;
+  border-radius: 999px;
+  color: white;
+  position: sticky;
+  top: 20px;
+  z-index: 1000;
+  transition: all 0.35s ease-in-out;
+}
+
+header.shrink {
+  padding: 8px 40px; /* shrinks vertically and horizontally */
+  background-color: rgba(13, 27, 42, 0.55);
+  backdrop-filter: blur(8px);
+  transform: scaleX(0.97); /* horizontal shrink effect */
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.25);
+}
+
+header nav {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+header .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    transition: all 0.35s ease;
+}
+
+header.shrink .logo {
+  font-size: 1.4rem;
+  letter-spacing: 0.5px;
+}
+header nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li {
+    display: flex;
+    align-items: center;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+header nav ul li a:hover {
+    color: #00aaff;
+}
+
+
+header.shrink nav ul li a {
+  font-size: 0.95rem;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+.nav-links li a.active {
+  color: #00bfff;
+  font-weight: 600;
+  position: relative;
+}
+
+.nav-links li a.active::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #00bfff;
+  border-radius: 2px;
+}
+
+
+/* ========== Hamburger Menu ========== */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.hamburger div {
+  width: 25px;
+  height: 3px;
+  background: #fff;
+  margin: 4px 0;
+  transition: all 0.3s ease;
+}
+
+/* === Pricing Section === */
+.pricing-section {
+  background: linear-gradient(135deg, #0b0f19, #121827);
+  padding: 140px 20px 80px;
+  text-align: center;
+  color: #fff;
+}
+
+.pricing-title {
+  font-size: 2.2rem;
+  color: #00bfff;
+  margin-bottom: 10px;
+}
+
+.pricing-subtitle {
+  font-size: 1rem;
+  color: #bbb;
+  margin-bottom: 40px;
+}
+
+.pricing-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+}
+
+.pricing-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  padding: 35px 30px;
+  width: 300px;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  cursor: pointer;
+}
+
+/* ===== Pricing Section ===== */
+.pricing-section {
+  padding: 140px 20px 80px;
+  text-align: center;
+  color: #fff;
+}
+
+.pricing-title {
+  font-size: 2.2rem;
+  color: #00bfff;
+  margin-bottom: 10px;
+}
+
+.pricing-subtitle {
+  font-size: 1rem;
+  color: #bbb;
+  margin-bottom: 40px;
+}
+
+.pricing-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+}
+
+/* === Card Base === */
+/* === Diagonal Blue Light Sweep Effect === */
+.pricing-card {
+  position: relative;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.08);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 35px 30px;
+  width: 300px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+/* The diagonal moving light */
+.pricing-card::before {
+  content: "";
+  position: absolute;
+  top: -150%;
+  left: -150%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(0, 191, 255, 0.6) 50%,
+    transparent 100%
+  );
+  opacity: 0;
+  transform: rotate(20deg);
+  transition: opacity 0.3s ease;
+  z-index: 0;
+}
+
+.pricing-card:hover::before {
+  opacity: 1;
+  animation: diagonalSweep 1.3s linear forwards;
+}
+
+/* Diagonal sweeping animation */
+@keyframes diagonalSweep {
+  0% {
+    top: -150%;
+    left: -150%;
+  }
+  100% {
+    top: 150%;
+    left: 150%;
+  }
+}
+
+/* Optional subtle glow during sweep */
+.pricing-card:hover {
+  border-color: #00bfff;
+  box-shadow: 0 0 25px rgba(0, 191, 255, 0.3);
+  transform: translateY(-4px);
+}
+
+/* Keep card content above sweep */
+.pricing-card * {
+  position: relative;
+  z-index: 1;
+}
+
+
+/* Glow animation */
+@keyframes borderGlow {
+  0% { box-shadow: 0 0 10px rgba(0,191,255,0.2); }
+  50% { box-shadow: 0 0 25px rgba(0,191,255,0.6); }
+  100% { box-shadow: 0 0 10px rgba(0,191,255,0.2); }
+}
+
+
+
+.pricing-card h3 {
+  margin-bottom: 10px;
+  color: #00bfff;
+}
+
+.price {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #fff;
+  font-weight: 600;
+}
+
+.pricing-card ul {
+  list-style: none;
+  margin: 20px 0;
+  color: #ccc;
+  text-align: left;
+}
+
+.pricing-card li {
+  margin-bottom: 8px;
+}
+
+.select-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 22px;
+  background: #00bfff;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.select-btn:hover {
+  background: #0099cc;
+  transform: scale(1.05);
+}
+
+/* === Staggered Fade-in Animation === */
+@keyframes cardFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.pricing-card.visible {
+  animation: cardFadeIn 0.8s ease-out forwards;
+}
+
+.pricing-card.visible:nth-child(1) {
+  animation-delay: 0.2s;
+}
+.pricing-card.visible:nth-child(2) {
+  animation-delay: 0.4s;
+}
+.pricing-card.visible:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+/* ===== Contact Section ===== */
+.contact-section {
+  padding: 100px 20px;
+  background: rgba(255, 255, 255, 0.03);
+  text-align: center;
+}
+
+.contact-container {
+  max-width: 600px;
+  margin: auto;
+}
+
+.contact-title {
+  font-size: 2rem;
+  color: #00bfff;
+  margin-bottom: 10px;
+}
+
+.contact-subtitle {
+  font-size: 1rem;
+  color: #bbb;
+  margin-bottom: 40px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  font-size: 1rem;
+  transition: border 0.3s ease;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border: 1px solid #00bfff;
+}
+
+.send-btn {
+  display: inline-block;
+  padding: 12px 28px;
+  background: #00bfff;
+  color: white;
+  border-radius: 8px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.send-btn:hover {
+  background: #0099cc;
+  transform: scale(1.05);
+}
+
+/* Response Message */
+.response-message {
+  margin-top: 15px;
+  font-size: 1rem;
+}
+
+.response-message.success {
+  color: #4cd964;
+}
+.response-message.error {
+  color: #ff3b30;
+}
+
+
+/* ===== Scroll-in Animation ===== */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== Responsive Adjustments ===== */
+@media (max-width: 600px) {
+
+  header {
+      position: fixed;
+      top: 15px;
+      left: 0;
+      width: 100%;
+      padding: 15px 20px;
+      background-color: #0d1b2a;
+      z-index: 1200; /* keep above menu overlay */
+      transition: all 0.3s ease;
+  }
+
+  body{
+      padding-top: 70px;
+  }
+
+  .pre-fade {
+    opacity: 0 !important;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+
+  header nav ul {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      opacity: 0;
+      background: rgba(0, 0, 0, 0.7); /* translucent layer */
+      backdrop-filter: blur(12px); /* 👈 premium glass effect */
+      -webkit-backdrop-filter: blur(12px); /* Safari support */
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      transition: right 0.5s ease, opacity 0.5s ease;
+      z-index: 1000;
+  }
+
+  header nav ul.show {
+      right: 0;
+      opacity: 1;
+  }
+
+  header nav ul li a {
+      font-size: 1.4rem;
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+  }
+
+  header nav ul li a:hover {
+      background-color: #00bfff; 
+  }
+  
+  body.menu-open {
+      overflow: hidden;
+  }
+
+  .hamburger {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      cursor: pointer;
+      z-index: 1100;
+  }
+
+  .hamburger span {
+      height: 3px;
+      width: 28px;
+      background-color: white;
+      border-radius: 3px;
+      transition: all 0.3s ease;
+  }
+
+  .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .hamburger.active span:nth-child(2) {
+      opacity: 0;
+  }
+
+  .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(6px, -6px);
+  }
+
+  /* === Menu Item Fade-in Animation === */
+
+  /* Define animation */
+  @keyframes fadeInUp {
+  0% {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+  }
+
+  /* Base state — hidden before menu opens */
+  header nav ul li {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.4s ease;
+  }
+
+  /* When menu is open, animate each link */
+  header nav ul.show li {
+  animation: fadeInUp 0.5s ease forwards;
+  }
+
+  /* Stagger delays for each link */
+  header nav ul.show li:nth-child(1) { animation-delay: 0.1s; }
+  header nav ul.show li:nth-child(2) { animation-delay: 0.2s; }
+  header nav ul.show li:nth-child(3) { animation-delay: 0.3s; }
+  header nav ul.show li:nth-child(4) { animation-delay: 0.4s; }
+  header nav ul.show li:nth-child(5) { animation-delay: 0.5s; }
+
+  /* Optional: give the contact button a slightly stronger pop */
+  header nav ul.show li:last-child {
+  animation-delay: 0.6s;
+  transform: scale(1.05);
+  }
+  .contact-container {
+    padding: 35px 25px;
+  }
+
+  .contact-title {
+    font-size: 1.7rem;
+  }
+
+  .contact-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .send-btn {
+    font-size: 0.95rem;
+  }
+
+  .social-links a {
+    font-size: 1.3rem;
+  }
+}
