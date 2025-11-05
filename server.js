@@ -50,10 +50,6 @@ app.post("/contact", async (req, res) => {
   }
 });
 
-import fs from "fs";
-import path from "path";
-import { Resend } from "resend";
-
 // Path to store subscriber list
 const newsletterFile = path.join(__dirname, "newsletter.json");
 
