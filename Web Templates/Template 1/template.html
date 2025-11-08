@@ -1,359 +1,329 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Digital Agency</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Launch your AI startup with a conversion-first website: AI chat, automated lead capture, and growth-ready design." />
+  <title>NovaAI — Conversion-first websites for AI startups</title>
+
+  <!-- Tailwind Play CDN (production-ready for prototypes; for production, compile Tailwind) -->
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
+    /* Extra, tiny UI polish */
+    :root{
+      --accent: #06b6d4; /* teal-ish accent */
+      --muted: #6b7280;
     }
-
-    body {
-      background: url(https://images.pexels.com/photos/459572/pexels-photo-459572.jpeg) no-repeat center center fixed;
-      background-size: cover;
-      color: #fff;
-    }
-
-    /* NAVBAR */
-    .navbar {
-      background: #111;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 12px 30px;
-      position: relative;
-      z-index: 10;
-    }
-
-    .navbar::before,
-    .navbar::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      width: 36px;
-      height: 64px;
-      background: #353333;
-      z-index: -1;
-    }
-
-    .navbar::before {
-      left: 0;
-      transform: skewY(30deg) translateY(11px);
-    }
-
-    .navbar::after {
-      right: 0;
-      transform: skewY(-30deg) translateY(11px);
-    }
-
-    .navbar nav {
-      display: flex;
-      align-items: center;
-      gap: 25px;
-    }
-
-    .navbar a {
-      font-size: 16px;
-      letter-spacing: 1px;
-      text-decoration: none;
-      color: #fff;
-      padding: 8px 14px;
-      border-radius: 25px;
-      transition: 0.4s;
-    }
-
-    .navbar a:hover {
-      background: #353333;
-    }
-
-    .logo {
-      font-size: 22px;
-      font-weight: 700;
-      color: #00ffaa;
-      letter-spacing: 1px;
-    }
-
-    /* MOBILE NAV TOGGLE */
-    .menu-toggle {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-      gap: 5px;
-    }
-
-    .menu-toggle span {
-      width: 25px;
-      height: 3px;
-      background: #fff;
-      transition: 0.3s;
-    }
-
-    /* HERO */
-    .hero {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 90vh;
-      text-align: center;
-      padding: 0 5%;
-    }
-
-    .hero h1 {
-      font-size: 65px;
-      color: #111;
-      background: rgba(255,255,255,0.85);
-      padding: 10px 25px;
-      border-radius: 12px;
-    }
-
-    .hero p {
-      color: #353333;
-      font-size: 18px;
-      margin: 20px auto;
-      width: 75%;
-      background: rgba(255,255,255,0.7);
-      padding: 10px 15px;
-      border-radius: 10px;
-    }
-
-    .hero a {
-      text-decoration: none;
-      background: #111;
-      color: #fff;
-      padding: 10px 30px;
-      border-radius: 25px;
-      transition: 0.4s;
-    }
-
-    .hero a:hover {
-      background: #353333;
-    }
-
-    section {
-      padding: 80px 10%;
-      text-align: center;
-      background: rgba(0,0,0,0.6);
-      margin-top: 40px;
-      border-radius: 20px;
-    }
-
-    section h2 {
-      font-size: 38px;
-      margin-bottom: 20px;
-      color: #00ffaa;
-      letter-spacing: 1px;
-    }
-
-    section p {
-      font-size: 18px;
-      line-height: 1.6;
-      color: #ccc;
-      margin-bottom: 30px;
-    }
-
-    /* SERVICES */
-    .services {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 25px;
-    }
-
-    .service-box {
-      background: #111;
-      padding: 25px;
-      border-radius: 15px;
-      transition: transform 0.3s ease;
-    }
-
-    .service-box:hover {
-      transform: scale(1.05);
-      background: #222;
-    }
-
-    .service-box h3 {
-      color: #00ffaa;
-      margin-bottom: 10px;
-    }
-
-    /* PORTFOLIO */
-    .portfolio-gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-
-    .portfolio-gallery img {
-      width: 100%;
-      border-radius: 15px;
-      transition: transform 0.4s;
-    }
-
-    .portfolio-gallery img:hover {
-      transform: scale(1.05);
-    }
-
-    /* CONTACT */
-    .contact form {
-      max-width: 600px;
-      margin: auto;
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-
-    .contact input, .contact textarea {
-      padding: 12px;
-      border: none;
-      border-radius: 10px;
-      font-size: 16px;
-      outline: none;
-    }
-
-    .contact button {
-      background: #00ffaa;
-      color: #111;
-      border: none;
-      padding: 12px;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: 0.4s;
-      font-weight: 600;
-    }
-
-    .contact button:hover {
-      background: #00cc88;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: #111;
-      color: #aaa;
-      margin-top: 50px;
-      border-radius: 15px;
-    }
-
-    /* RESPONSIVE STYLES */
-    @media (max-width: 900px) {
-      .navbar nav {
-        position: absolute;
-        top: 65px;
-        left: 0;
-        width: 100%;
-        background: #111;
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
-        padding: 20px 0;
-        display: none;
-      }
-
-      .navbar nav.active {
-        display: flex;
-      }
-
-      .menu-toggle {
-        display: flex;
-      }
-
-      .hero h1 {
-        font-size: 45px;
-      }
-
-      .hero p {
-        font-size: 16px;
-        width: 90%;
-      }
-
-      section {
-        padding: 60px 6%;
-      }
+    /* Smooth entrance */
+    .fade-up { transform: translateY(10px); opacity: 0; transition: all .6s cubic-bezier(.2,.9,.3,1); }
+    .fade-up.in { transform: translateY(0); opacity: 1; }
+    /* Glass card */
+    .glass { background: rgba(255,255,255,0.06); backdrop-filter: blur(6px); border: 1px solid rgba(255,255,255,0.06); }
+    /* subtle focus for inputs */
+    input:focus, textarea:focus { outline: 2px solid rgba(6,182,212,0.12); box-shadow: 0 6px 18px rgba(6,182,212,0.06); }
+    /* Pricing badge */
+    .badge { background: linear-gradient(90deg, rgba(6,182,212,0.12), rgba(59,130,246,0.08)); color: #06b6d4; font-weight: 600; padding: 4px 8px; border-radius: 999px; font-size: 0.8rem;}
+    /* small responsive tweaks */
+    @media (min-width: 1024px) {
+      .hero-illustration { transform: translateX(10%); }
     }
   </style>
 </head>
+<body class="antialiased text-slate-100 bg-gradient-to-b from-slate-900 via-slate-950 to-black">
+  <main class="max-w-6xl mx-auto px-6 py-16">
 
-<body>
-  <header class="navbar">
-    <div class="logo">DigitalAgency</div>
-    <div class="menu-toggle" onclick="toggleMenu()">
-      <span></span><span></span><span></span>
-    </div>
-    <nav id="menu">
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#portfolio">Portfolio</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+    <!-- NAV -->
+    <header class="flex items-center justify-between mb-12">
+      <a href="#" class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-slate-800 to-slate-700 flex items-center justify-center ring-1 ring-white/6">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 12h18" stroke="white" stroke-width="1.5" stroke-linecap="round"/><path d="M12 3v18" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <span class="font-semibold text-lg">Nova AI</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-6 text-sm text-slate-300">
+        <a href="#features" class="hover:text-white">Features</a>
+        <a href="#pricing" class="hover:text-white">Pricing</a>
+        <a href="#case" class="hover:text-white">Case</a>
+        <a href="#contact" class="px-4 py-2 rounded-md border border-white/6 text-slate-200 hover:bg-white/5">Book a Call</a>
+      </nav>
+      <div class="md:hidden text-slate-300">Menu</div>
+    </header>
 
-  <section class="hero" id="home">
-    <h1>Digital Agency</h1>
-    <p>We create powerful, modern, and responsive websites to elevate your business presence online.</p>
-    <a href="#services">Explore Services</a>
-  </section>
+    <!-- HERO -->
+    <section class="grid lg:grid-cols-12 gap-12 items-center">
+      <div class="lg:col-span-7">
+        <p class="inline-flex items-center gap-2 text-xs text-slate-400 mb-4">
+          <span class="badge">Demo • SmartSite</span>
+          <span class="px-2">|</span>
+          <span>AI SaaS landing template</span>
+        </p>
 
-  <section id="about">
-    <h2>About Us</h2>
-    <p>We are a team of creative designers and developers passionate about crafting visually appealing, performance-driven websites. Our focus is to help brands stand out and grow digitally through stunning UI and intelligent design systems.</p>
-  </section>
+        <h1 class="text-4xl md:text-5xl leading-tight font-extrabold text-white mb-6">
+          Websites & AI systems that convert startup traffic into paying customers
+        </h1>
 
-  <section id="services">
-    <h2>Our Services</h2>
-    <div class="services">
-      <div class="service-box">
-        <h3>Website Design</h3>
-        <p>Elegant, responsive, and brand-focused website design for your business.</p>
+        <p class="text-slate-300 max-w-xl mb-8">
+          We build minimal, high-performance landing pages with embedded AI chat, automated lead capture, and analytics—so seed-stage founders can validate demand and start closing customers fast.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="#contact" class="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-sky-500 to-teal-400 text-black font-semibold px-5 py-3 rounded-lg shadow-lg">Book a free 15-min strategy call</a>
+          <a href="#pricing" class="inline-flex items-center gap-2 border border-white/6 px-5 py-3 rounded-lg text-slate-200 hover:bg-white/3">See plans</a>
+        </div>
+
+        <!-- quick benefits -->
+        <div class="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm text-slate-400">
+          <div>
+            <div class="font-semibold text-slate-200">Launch in 7 days</div>
+            <div>From brief to live in one week.</div>
+          </div>
+          <div>
+            <div class="font-semibold text-slate-200">AI-powered engagement</div>
+            <div>Chat flows that qualify visitors automatically.</div>
+          </div>
+          <div>
+            <div class="font-semibold text-slate-200">Lead systems</div>
+            <div>Integrated CRM & email follow-ups.</div>
+          </div>
+        </div>
       </div>
-      <div class="service-box">
-        <h3>Web Development</h3>
-        <p>Full-stack web solutions powered by the latest technologies and frameworks.</p>
-      </div>
-      <div class="service-box">
-        <h3>SEO & Marketing</h3>
-        <p>Improve visibility and drive targeted traffic with optimized strategies.</p>
-      </div>
-      <div class="service-box">
-        <h3>Brand Identity</h3>
-        <p>From logos to color palettes, we define the essence of your brand visually.</p>
-      </div>
-    </div>
-  </section>
 
-  <section id="portfolio">
-    <h2>Our Work</h2>
-    <div class="portfolio-gallery">
-      <img src="https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg" alt="Project 1">
-      <img src="https://images.pexels.com/photos/1181275/pexels-photo-1181275.jpeg" alt="Project 2">
-      <img src="https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg" alt="Project 3">
-      <img src="https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg" alt="Project 4">
-    </div>
-  </section>
+      <!-- Illustration -->
+      <div class="lg:col-span-5">
+        <div class="hero-illustration relative w-full h-80 lg:h-96 rounded-2xl overflow-hidden glass p-6 flex items-center justify-center">
+          <!-- mock UI / mini dashboard -->
+          <div class="w-full max-w-md">
+            <div class="flex items-center justify-between mb-4">
+              <div class="text-sm text-slate-300">NovaAI • Dashboard</div>
+              <div class="text-xs text-slate-400">Live • Demo</div>
+            </div>
+            <div class="bg-gradient-to-br from-white/6 to-white/3 rounded-xl p-4">
+              <div class="flex items-center justify-between mb-3">
+                <div>
+                  <div class="text-xs text-slate-300">Visitors</div>
+                  <div class="text-xl font-semibold text-white">1,234</div>
+                </div>
+                <div>
+                  <div class="text-xs text-slate-300">Leads</div>
+                  <div class="text-xl font-semibold text-white">42</div>
+                </div>
+              </div>
+              <div class="h-28 rounded-md bg-gradient-to-r from-white/4 to-white/6 flex items-end p-3">
+                <div class="h-16 w-full rounded bg-gradient-to-t from-sky-500 to-teal-300"></div>
+              </div>
+            </div>
+            <div class="mt-4 text-xs text-slate-400">Example dashboard — live demo metrics for the SmartSite template.</div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <section id="contact" class="contact">
-    <h2>Contact Us</h2>
-    <p>Have a project in mind? Let's build something amazing together.</p>
-    <form>
-      <input type="text" placeholder="Your Name" required>
-      <input type="email" placeholder="Your Email" required>
-      <textarea rows="5" placeholder="Your Message" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-  </section>
+    <!-- FEATURES -->
+    <section id="features" class="mt-16 grid lg:grid-cols-12 gap-8 items-start">
+      <div class="lg:col-span-7">
+        <h2 class="text-2xl font-bold text-white mb-3">What NovaAI does for your startup</h2>
+        <p class="text-slate-300 max-w-2xl">We combine modern UI, AI chat, and automated growth workflows so your website doesn't just sit pretty — it works as your first sales hire.</p>
 
-  <footer>
-    <p>© 2025 Digital Agency. All rights reserved.</p>
-  </footer>
+        <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-5">
+          <div class="glass p-5 rounded-lg">
+            <div class="font-semibold text-white mb-2">AI Chat for qualification</div>
+            <div class="text-slate-300 text-sm">An on-site assistant that engages visitors, asks qualifying questions, and books meetings or pushes leads to your CRM.</div>
+          </div>
+          <div class="glass p-5 rounded-lg">
+            <div class="font-semibold text-white mb-2">Conversion-first templates</div>
+            <div class="text-slate-300 text-sm">Pages designed for clarity: hero → problem → proof → CTA. Optimized for speed and conversion.</div>
+          </div>
+          <div class="glass p-5 rounded-lg">
+            <div class="font-semibold text-white mb-2">Automated follow-ups</div>
+            <div class="text-slate-300 text-sm">Email sequences & lead tagging so no inbound lead slips through the cracks.</div>
+          </div>
+          <div class="glass p-5 rounded-lg">
+            <div class="font-semibold text-white mb-2">Analytics & CRM</div>
+            <div class="text-slate-300 text-sm">Setup of simple dashboards and lead tracking to measure real growth.</div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="lg:col-span-5">
+        <div class="glass p-6 rounded-xl">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-md bg-gradient-to-br from-slate-800 to-slate-700 flex items-center justify-center">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M3 12h18" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+            <div>
+              <div class="text-sm text-slate-300">Quick Launch</div>
+              <div class="font-semibold text-white">Get a conversion-ready demo in 7 days</div>
+            </div>
+          </div>
+
+          <hr class="my-4 border-white/6" />
+          <div class="text-sm text-slate-300">Includes:</div>
+          <ul class="text-slate-300 mt-3 space-y-2">
+            <li>• One-page or multi-page variant</li>
+            <li>• AI chat prototype (chat flows)</li>
+            <li>• Lead capture + basic CRM wiring</li>
+            <li>• Speed & SEO basics</li>
+          </ul>
+          <div class="mt-4">
+            <a href="#contact" class="inline-block text-sm font-semibold px-4 py-2 rounded-md bg-white/5">Request demo</a>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- PRICING -->
+    <section id="pricing" class="mt-16">
+      <h2 class="text-2xl font-bold text-white mb-6">Pricing</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <!-- Card 1 -->
+        <div class="glass p-6 rounded-2xl">
+          <div class="flex items-center justify-between mb-4">
+            <div>
+              <div class="text-sm text-slate-300">SmartSite</div>
+              <div class="text-2xl font-bold text-white">₹25,000</div>
+            </div>
+            <div class="text-xs text-slate-400">Launch • 7 days</div>
+          </div>
+          <p class="text-slate-300 text-sm mb-4">One-page, conversion-first landing page with lead capture and hosting setup.</p>
+          <ul class="text-slate-300 text-sm space-y-2 mb-6">
+            <li>• Fast responsive layout</li>
+            <li>• Basic SEO structure</li>
+            <li>• Contact form + analytics</li>
+          </ul>
+          <a href="#contact" class="w-full inline-block text-center py-3 rounded-lg bg-gradient-to-r from-sky-500 to-teal-400 text-black font-semibold">Get SmartSite</a>
+        </div>
+
+        <!-- Card 2 (Most popular) -->
+        <div class="glass p-6 rounded-2xl ring-1 ring-white/6 border border-white/4">
+          <div class="flex items-center justify-between mb-3">
+            <div>
+              <div class="badge">Most Popular</div>
+              <div class="text-2xl font-bold text-white mt-3">Startup System</div>
+            </div>
+            <div class="text-xs text-slate-400">3–4 weeks</div>
+          </div>
+          <p class="text-slate-300 text-sm mb-4">Custom multi-page site + AI chatbot, CRM wiring & automation to convert visitors into clients.</p>
+          <ul class="text-slate-300 text-sm space-y-2 mb-6">
+            <li>• Multi-page UX & growth copy</li>
+            <li>• AI chat flows & lead qualification</li>
+            <li>• CRM & email automation</li>
+          </ul>
+          <a href="#contact" class="w-full inline-block text-center py-3 rounded-lg bg-white/5 text-sky-300 font-semibold">Build my System — ₹85,000</a>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="glass p-6 rounded-2xl">
+          <div class="flex items-center justify-between mb-4">
+            <div>
+              <div class="text-sm text-slate-300">Growth Partner</div>
+              <div class="text-2xl font-bold text-white">₹40,000 / month</div>
+            </div>
+            <div class="text-xs text-slate-400">3 month min</div>
+          </div>
+          <p class="text-slate-300 text-sm mb-4">Ongoing optimization, ads, and growth experiments to scale traffic and conversions.</p>
+          <ul class="text-slate-300 text-sm space-y-2 mb-6">
+            <li>• Monthly growth sprints</li>
+            <li>• Ad campaign management</li>
+            <li>• Priority support & roadmap</li>
+          </ul>
+          <a href="#contact" class="w-full inline-block text-center py-3 rounded-lg bg-white/5 text-slate-200 font-semibold">Become a Partner</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- MINI CASE STUDY -->
+    <section id="case" class="mt-16">
+      <h2 class="text-2xl font-bold text-white mb-4">Mini demo case study</h2>
+      <div class="glass p-6 rounded-xl">
+        <div class="grid md:grid-cols-3 gap-6 items-start">
+          <div>
+            <div class="text-sm text-slate-300">Project</div>
+            <div class="font-semibold text-white">NovaAI — Demo Landing</div>
+            <div class="text-xs text-slate-400 mt-2">Sample project used to demonstrate SmartSite + AI chat integration.</div>
+          </div>
+          <div class="text-slate-300">
+            <div class="font-semibold text-white mb-2">Goal</div>
+            <div>Showcase a high-converting landing page and chatbot flow suitable for seed-stage founders.</div>
+          </div>
+          <div class="text-slate-300">
+            <div class="font-semibold text-white mb-2">Outcome</div>
+            <ul class="list-disc ml-5">
+              <li>PageSpeed (sample): 95/100</li>
+              <li>Mobile optimized, < 2.5s load</li>
+              <li>AI chat prototype that collects lead details & schedules a call</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS (demo) -->
+    <section class="mt-12 grid md:grid-cols-2 gap-6">
+      <div class="glass p-6 rounded-xl">
+        <div class="font-semibold text-white">What founders see</div>
+        <div class="text-slate-300 mt-3">“The demo felt like a real product — clear, fast, and focused on getting customers.”</div>
+        <div class="text-xs text-slate-400 mt-2">— Product Lead, Demo Startup</div>
+      </div>
+      <div class="glass p-6 rounded-xl">
+        <div class="font-semibold text-white">Why this works</div>
+        <div class="text-slate-300 mt-3">Minimal UI, fast performance, and clear CTAs reduce friction and increase demo-to-call conversion.</div>
+        <div class="text-xs text-slate-400 mt-2">— Growth Advisor</div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="mt-16">
+      <h3 class="text-xl font-semibold text-white mb-3">Get a free 15-minute strategy call</h3>
+      <p class="text-slate-300 mb-6 max-w-2xl">No templates. We’ll review your goals and map a 7- to 30-day plan to get you the first paying customers.</p>
+
+      <!-- Contact form (Formspree / Netlify friendly) -->
+      <!-- Replace FORM_ACTION with your Formspree or Netlify endpoint -->
+      <form id="contactForm" action="https://formspree.io/f/your-form-id" method="POST" class="grid md:grid-cols-3 gap-4">
+        <input name="name" required placeholder="Your name" class="md:col-span-1 p-3 rounded-md bg-transparent border border-white/6" />
+        <input name="email" required placeholder="Email" class="md:col-span-1 p-3 rounded-md bg-transparent border border-white/6" />
+        <input name="company" placeholder="Company (optional)" class="md:col-span-1 p-3 rounded-md bg-transparent border border-white/6" />
+        <textarea name="message" required placeholder="A short description of your challenge" class="md:col-span-3 p-3 rounded-md bg-transparent border border-white/6 h-28"></textarea>
+
+        <div class="md:col-span-3 flex items-center gap-4">
+          <button type="submit" class="px-5 py-3 rounded-lg bg-gradient-to-r from-sky-500 to-teal-400 text-black font-semibold">Book my call</button>
+          <div class="text-sm text-slate-400">Or email: <a class="text-slate-200 underline" href="mailto:sahib@example.com">sahib@example.com</a></div>
+        </div>
+      </form>
+
+      <div id="formSuccess" class="hidden mt-4 p-4 rounded-md text-slate-900 bg-emerald-200">Thanks — we'll email to confirm your call.</div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="mt-16 border-t border-white/6 pt-8 text-slate-400 text-sm">
+      <div class="flex items-center justify-between">
+        <div>© <span id="yr"></span> Nova AI — Built for startups</div>
+        <div>Designed with minimal approach • <a href="#" class="underline">Privacy</a></div>
+      </div>
+    </footer>
+
+  </main>
 
   <script>
-    function toggleMenu() {
-      document.getElementById('menu').classList.toggle('active');
-    }
+    // small script: animate fade-ups on load
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('.fade-up').forEach((el, i) => {
+        setTimeout(()=> el.classList.add('in'), 80 * i);
+      });
+      // set year
+      document.getElementById('yr').textContent = new Date().getFullYear();
+
+      // form handling: show success message on submit (degrades gracefully)
+      const form = document.getElementById('contactForm');
+      if (form) {
+        form.addEventListener('submit', function(e) {
+          // If using Formspree or Netlify, this will actually submit.
+          // Show a quick UI success while the form posts:
+          const success = document.getElementById('formSuccess');
+          success.classList.remove('hidden');
+          setTimeout(()=> success.classList.add('hidden'), 6000);
+        });
+      }
+    });
   </script>
 </body>
 </html>

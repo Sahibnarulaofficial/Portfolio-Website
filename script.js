@@ -64,14 +64,15 @@ typeAnimation();
 /* ===== Portfolio Modal ===== */
 const projects = [
     {
-        title: "Business Website",
+        title: "NovaAI",
         images: [
             "Images/Portfolio/Portfolio 1/Laptop 1.png",
             "Images/Portfolio/Portfolio 1/Laptop 2.png",
             "Images/Portfolio/Portfolio 1/Laptop 3.png",
-            "Images/Portfolio/Portfolio 2/Mobile 1.png",
-            "Images/Portfolio/Portfolio 2/Mobile 2.png",
-            "Images/Portfolio/Portfolio 2/Mobile 3.png"
+            "Images/Portfolio/Portfolio 1/Mobile 1.png",
+            "Images/Portfolio/Portfolio 1/Mobile 2.png",
+            "Images/Portfolio/Portfolio 1/Mobile 3.png",
+            "Images/Portfolio/Portfolio 1/Mobile 4.png"
         ],
         description: "A sleek and responsive corporate website designed for professional service businesses. Includes custom layouts, call-to-action elements, and integrated contact form.",
         link: "Web Templates/Template 1/template.html"
