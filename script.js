@@ -75,6 +75,7 @@ const projects = [
             "Images/Portfolio/Portfolio 1/Mobile 4.png"
         ],
         description: "A sleek and responsive corporate website designed for professional service businesses. Includes custom layouts, call-to-action elements, and integrated contact form.",
+        description1: "⚡ Loads in 2.1 seconds 📱 100% Mobile Responsive 🔍 SEO Score: 100/100",
         link: "Web Templates/Template 1/template.html"
     },
     {
@@ -118,7 +119,7 @@ function openModal(index) {
         .map((src, i) => `<img src="${src}" class="${i === 0 ? 'active' : ''}">`)
         .join("");
 
-    modalDescription.innerHTML = `<h3>${projects[index].title}</h3><p>${projects[index].description}</p><a href="${projects[index].link}" target="_blank" class="view-template-btn">View Template ↗</a>`;
+    modalDescription.innerHTML = `<h3>${projects[index].title}</h3><p>${projects[index].description}</p> <br> <p>${projects[index].description1}</p> <a href="${projects[index].link}" target="_blank" class="view-template-btn">View Template ↗</a>`;
     modal.style.display = "flex";
 }
 
