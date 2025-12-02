@@ -716,10 +716,12 @@ body:hover ::-webkit-scrollbar-thumb:hover {
         left: 0;
         width: 100%;
         padding: 15px 20px;
-        background-color: #0d1b2a;
-        border-radius: 10px;
         z-index: 1200; /* keep above menu overlay */
         transition: all 0.3s ease;
+        background-color: rgba(13, 27, 42, 0.75);
+        backdrop-filter: blur(8px);
+        box-shadow: 0 3px 12px rgba(0, 0, 0, 0.25);
+        border-radius: 999px;
     }
 
     body{
@@ -1018,4 +1020,21 @@ body:hover ::-webkit-scrollbar-thumb:hover {
     ::-webkit-scrollbar-thumb {
         background: #121212;
     }
+    @media (max-width: 900px) {
+
+        /* -------- Navbar -------- */
+        header {
+            position: fixed;
+            top: 15px;
+            left: 0;
+            width: 100%;
+            padding: 15px 20px;
+            z-index: 1200; /* keep above menu overlay */
+            transition: all 0.3s ease;
+            background-color: rgba(27, 27, 27, 0.75);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.25);
+            border-radius: 999px;
+        }
+    }   
 }
