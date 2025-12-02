@@ -119,7 +119,7 @@ function openModal(index) {
         .map((src, i) => `<img src="${src}" class="${i === 0 ? 'active' : ''}">`)
         .join("");
 
-    modalDescription.innerHTML = `<h3>${projects[index].title}</h3><p>${projects[index].description}</p> <br> <p>${projects[index].description1}</p> <a href="${projects[index].link}" target="_blank" class="view-template-btn">View Template ↗</a>`;
+    modalDescription.innerHTML = `<h3>${projects[index].title}</h3><p>${projects[index].description}</p> <br> <p>${projects[index].description1}</p> <a href="${projects[index].link}" target="_blank" class="view-template-btn">View Live Website ↗</a>`;
     modal.style.display = "flex";
 }
 
