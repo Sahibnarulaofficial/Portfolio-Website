@@ -712,7 +712,7 @@ body:hover ::-webkit-scrollbar-thumb:hover {
     /* -------- Navbar -------- */
     header {
         position: fixed;
-        top: 15px;
+        top: 0px;
         left: 0;
         width: 100%;
         padding: 15px 20px;
@@ -721,34 +721,29 @@ body:hover ::-webkit-scrollbar-thumb:hover {
         background-color: rgba(13, 27, 42, 0.75);
         backdrop-filter: blur(8px);
         box-shadow: 0 3px 12px rgba(0, 0, 0, 0.25);
-        border-radius: 999px;
+        border-start-start-radius: 0;
+        border-start-end-radius: 0;
+        border-end-start-radius: 30px;
+        border-end-end-radius: 30px;
     }
 
-    body{
+    body {
         padding-top: 70px;
     }
 
-    .pre-fade {
-    opacity: 0 !important;
-    transform: translateY(30px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-
-
     header nav ul {
-        background: rgba(0, 0, 0, 0.85); /* translucent layer */
-        backdrop-filter: blur(10px); /* 👈 premium glass effect */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: rgba(0, 0, 0, 0.85);
+        backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
         position: fixed;
         top: 0;
         right: -100%;
         width: 100%;
         height: 100vh;
-        display: flex;
- /* Safari support */
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
         gap: 40px;
         transition: right 0.5s ease, opacity 0.5s ease;
         z-index: 1000;
@@ -944,7 +939,7 @@ body:hover ::-webkit-scrollbar-thumb:hover {
         
     }
     header {
-        background-color: #2c2c2c;
+        background-color: rgba(46, 46, 46, 0.25);
         color: #fff;
     }
     
@@ -1017,21 +1012,4 @@ body:hover ::-webkit-scrollbar-thumb:hover {
     ::-webkit-scrollbar-thumb {
         background: #121212;
     }
-    @media (max-width: 900px) {
-
-        /* -------- Navbar -------- */
-        header {
-            position: fixed;
-            top: 15px;
-            left: 0;
-            width: 100%;
-            padding: 15px 20px;
-            z-index: 1200; /* keep above menu overlay */
-            transition: all 0.3s ease;
-            background-color: rgba(27, 27, 27, 0.75);
-            backdrop-filter: blur(8px);
-            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.25);
-            border-radius: 999px;
-        }
-    }   
 }
