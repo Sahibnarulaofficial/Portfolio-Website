@@ -181,12 +181,32 @@ hamburger.addEventListener('click', () => {
   document.body.classList.toggle('menu-open');
 });
 
+// ===== Universal Smooth Scroll Handler =====
 navItems.forEach(link => {
-  link.addEventListener('click', () => {
-    if (navLinks.classList.contains('show')) {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    
+    // --- Mobile-Only Menu Close Logic ---
+    // If the menu is open (on mobile), close it on link click.
+    if (hamburger.classList.contains('active')) {
       navLinks.classList.remove('show');
       hamburger.classList.remove('active');
       document.body.classList.remove('menu-open');
+    }
+
+    // --- Universal Smooth Scroll Logic ---
+    const targetId = link.getAttribute('href').split('#')[1];
+    const targetSection = document.getElementById(targetId);
+
+    if (targetSection) {
+      // The fade animation logic is now managed by the IntersectionObserver.
+      // Simply scroll to the section smoothly.
+      // On mobile, the setTimeout is needed to allow the menu to close first.
+      const scrollDelay = window.innerWidth <= 900 ? 250 : 0; 
+
+      setTimeout(() => {
+        targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, scrollDelay);
     }
   });
 });

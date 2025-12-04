@@ -736,16 +736,16 @@ body:hover ::-webkit-scrollbar-thumb:hover {
 
 
     header nav ul {
+        background: rgba(0, 0, 0, 0.85); /* translucent layer */
+        backdrop-filter: blur(10px); /* 👈 premium glass effect */
+        -webkit-backdrop-filter: blur(10px);
         position: fixed;
         top: 0;
         right: -100%;
         width: 100%;
         height: 100vh;
         display: flex;
-        opacity: 0;
-        background: rgba(0, 0, 0, 0.7); /* translucent layer */
-        backdrop-filter: blur(12px); /* 👈 premium glass effect */
-        -webkit-backdrop-filter: blur(12px); /* Safari support */
+ /* Safari support */
         flex-direction: column;
         align-items: center;
         justify-content: center;
@@ -767,9 +767,6 @@ body:hover ::-webkit-scrollbar-thumb:hover {
         transition: color 0.3s ease;
     }
 
-    header nav ul li a:hover {
-        background-color: #00bfff; 
-    }
     
     body.menu-open {
         overflow: hidden;
